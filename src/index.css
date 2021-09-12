@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.title {
+  text-transform: capitalize;
+  color: rebeccapurple;
+  /* text-align: center; */
+  margin: 30px;
+  font-family: 'Big Shoulders Stencil Display', cursive;
+}
+
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  height: 300px;
+  width: 300px;
+  padding: 10px;
+
+}
+
+@media screen and (max-width : 320px) {
+  .gallery img {
+    height: auto;
+    width: 100%;
+    padding: 10px;
+
+  }
+}
