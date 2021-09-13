@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./NewExpenseForm.css";
 
 const NewExpenseForm = (props) => {
-  const [title, setTitle] = useState();
-  const [date, setDate] = useState();
-  const [price, setAmount] = useState();
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
+  const [price, setAmount] = useState("");
 
   const titleHandler = (event) => {
     setTitle(event.target.value);
@@ -17,11 +17,13 @@ const NewExpenseForm = (props) => {
   };
   const submitHandler = (event) => {
     event.preventDefault();
+
     const inputData = {
       title: title,
       price: price,
-      date: date,
+      date: new Date(date),
     };
+
     props.NewFormData(inputData);
 
     setTitle("");

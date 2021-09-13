@@ -4,7 +4,7 @@ import "./Expenses.css";
 import Card from "../common/Card";
 import ExpensesFilter from "./ExpensesFilter";
 const Expenses = (props) => {
-  const [filterYear, setFilterYear] = useState(2021);
+  const [filterYear, setFilterYear] = useState("2021");
 
   const filterYearHandler = (selectedYear) => {
     setFilterYear(selectedYear);
@@ -21,8 +21,8 @@ const Expenses = (props) => {
           <ExpenseItem
             key={expese.id}
             title={expese.title}
-            date={expese.date}
             price={expese.price}
+            date={expese.date}
           />
         ))}
       </Card>
