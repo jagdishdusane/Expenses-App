@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import NewExpenseForm from "./NewExpenseForm";
 import "./NewExpense.css";
 
 const NewExpense = (props) => {
+  const [isVisible, setVisible] = useState(false);
+
   const formData = (formInfo) => {
     const info = {
       ...formInfo,
@@ -11,9 +13,21 @@ const NewExpense = (props) => {
     props.newItem(info);
   };
 
+  const cancelHandler = () => {
+    setVisible(false);
+  };
+
+  const visibleHandler = () => {
+    setVisible(true);
+  };
+
   return (
     <div className="new-expense">
-      <NewExpenseForm NewFormData={formData} />
+      {!isVisible && <button onClick={visibleHandler}>Add Expense</button>}
+
+      {isVisible && (
+        <NewExpenseForm NewFormData={formData} onCancel={cancelHandler} />
+      )}
     </div>
   );
 };
